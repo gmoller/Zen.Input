@@ -1,6 +1,6 @@
 # Zen.Input
 
-An project for helping manage user input for use with MonoGame.
+A project for helping manage user input for use with MonoGame.
 
 # Developer
 Written by Greg Moller (greg.moller@gmail.com)
