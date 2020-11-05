@@ -2,7 +2,7 @@
 
 A project for helping manage user input for use with MonoGame.
 
-Nuget package download: https://www.nuget.org/packages/Zen.Input/0.1.1
+Nuget package download: https://www.nuget.org/packages/Zen.Input/0.1.3
 
 # Developer
 Written by Greg Moller (greg.moller@gmail.com)
