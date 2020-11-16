@@ -59,7 +59,7 @@ namespace Zen.Input
             Mouse.SetPosition(pos.X, pos.Y);
         }
 
-        private bool IsLeftButtonDown()
+        internal bool IsLeftButtonDown()
         {
             return _currentState.LeftButton == ButtonState.Pressed;
         }
@@ -114,7 +114,7 @@ namespace Zen.Input
             return _currentState.ScrollWheelValue < _previousState.ScrollWheelValue;
         }
 
-        private bool HasMouseMoved()
+        internal bool HasMouseMoved()
         {
             return _previousState.Position != _currentState.Position;
         }

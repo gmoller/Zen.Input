@@ -28,6 +28,8 @@ namespace Zen.Input
 
         public Point MousePosition => Mouse.Location;
         public bool IsLeftMouseButtonReleased => Mouse.IsLeftButtonReleased();
+        public bool IsLeftMouseButtonDown => Mouse.IsLeftButtonDown();
+        public bool MouseHasMoved => Mouse.HasMouseMoved();
 
         public void Update(object state, float deltaTime)
         {
