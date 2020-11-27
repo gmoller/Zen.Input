@@ -43,6 +43,7 @@ namespace Zen.Input
         }
 
         public Point Location => _currentState.Position;
+        public Point PreviousLocation => _previousState.Position;
         public Point Movement => _currentState.Position - _previousState.Position;
 
         internal void Update(Dictionary<string, Dictionary<string, MouseInputAction>> mouseEventHandlers, object state, float deltaTime)
@@ -64,7 +65,7 @@ namespace Zen.Input
             return _currentState.LeftButton == ButtonState.Pressed;
         }
 
-        private bool IsLeftButtonPressed()
+        internal bool IsLeftButtonPressed()
         {
             return _previousState.LeftButton == ButtonState.Released && _currentState.LeftButton == ButtonState.Pressed;
         }
@@ -74,32 +75,32 @@ namespace Zen.Input
             return _previousState.LeftButton == ButtonState.Pressed && _currentState.LeftButton == ButtonState.Released;
         }
 
-        private bool IsMiddleButtonDown()
+        internal bool IsMiddleButtonDown()
         {
             return _currentState.MiddleButton == ButtonState.Pressed;
         }
 
-        private bool IsMiddleButtonPressed()
+        internal bool IsMiddleButtonPressed()
         {
             return _previousState.MiddleButton == ButtonState.Released && _currentState.MiddleButton == ButtonState.Pressed;
         }
 
-        private bool IsMiddleButtonReleased()
+        internal bool IsMiddleButtonReleased()
         {
             return _previousState.MiddleButton == ButtonState.Pressed && _currentState.MiddleButton == ButtonState.Released;
         }
 
-        private bool IsRightButtonDown()
+        internal bool IsRightButtonDown()
         {
             return _currentState.RightButton == ButtonState.Pressed;
         }
 
-        private bool IsRightButtonPressed()
+        internal bool IsRightButtonPressed()
         {
             return _previousState.RightButton == ButtonState.Released && _currentState.RightButton == ButtonState.Pressed;
         }
 
-        private bool IsRightButtonReleased()
+        internal bool IsRightButtonReleased()
         {
             return _previousState.RightButton == ButtonState.Pressed && _currentState.RightButton == ButtonState.Released;
         }
