@@ -12,6 +12,9 @@ namespace Zen.Input
         private readonly Dictionary<KeyboardInputActionType, Func<Keys, bool>> _switch;
         #endregion End State
 
+        /// <summary>
+        /// Returns an array of values holding keys that are currently being pressed.
+        /// </summary>
         public Keys[] Keys => _currentState.GetPressedKeys();
 
         internal KeyboardHandler()
