@@ -53,7 +53,7 @@ namespace Zen.Input
         /// </summary>
         /// <param name="key">Key to check.</param>
         /// <returns>True if key is currently being pressed.</returns>
-        internal bool IsKeyDown(Keys key)
+        public bool IsKeyDown(Keys key)
         {
             return _currentState.IsKeyDown(key);
         }
