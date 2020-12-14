@@ -96,6 +96,13 @@ namespace Zen.Input
         /// </summary>
         public bool KeyPressed => Keyboard.Keys.Length > 0;
 
+        /// <summary>
+        /// Is the key currently being pressed?
+        /// </summary>
+        /// <param name="key">Key to check.</param>
+        /// <returns>True if key is currently being pressed.</returns>
+        public bool IsKeyDown(Keys key) => Keyboard.IsKeyDown(key);
+
         public void Update(object state, float deltaTime)
         {
             Keyboard.Update(KeyboardEventHandlers, state, deltaTime);
