@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Zen.Input</AssemblyName>
     <RootNamespace>Zen.Input</RootNamespace>
-    <Version>0.1.8</Version>
+    <Version>0.1.10</Version>
     <Authors>Greg Moller</Authors>
     <Company>Zen</Company>
     <Description>A project for helping manage user input for use with MonoGame.</Description>
