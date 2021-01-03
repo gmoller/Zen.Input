@@ -34,10 +34,10 @@ namespace Zen.Input
                 { MouseInputActionType.MiddleButtonDrag, () => IsMiddleButtonDown() && HasMouseMoved() },
                 { MouseInputActionType.RightButtonDrag, () => IsRightButtonDown() && HasMouseMoved() },
                 { MouseInputActionType.Moved, HasMouseMoved },
-                { MouseInputActionType.AtTopOfScreen, IsMouseIsAtTopOfScreen },
-                { MouseInputActionType.AtBottomOfScreen, MouseIsAtBottomOfScreen },
-                { MouseInputActionType.AtLeftOfScreen, MouseIsAtLeftOfScreen },
-                { MouseInputActionType.AtRightOfScreen, MouseIsAtRightOfScreen },
+                { MouseInputActionType.AtTopOfScreen, IsMouseAtTopOfScreen },
+                { MouseInputActionType.AtBottomOfScreen, IsMouseAtBottomOfScreen },
+                { MouseInputActionType.AtLeftOfScreen, IsMouseAtLeftOfScreen },
+                { MouseInputActionType.AtRightOfScreen, IsMouseAtRightOfScreen },
                 { MouseInputActionType.CheckForHoverOver, () => true},
             };
         }
@@ -51,7 +51,7 @@ namespace Zen.Input
             _previousState = _currentState;
             _currentState = Mouse.GetState();
 
-            HandleMouse(mouseEventHandlers, state, deltaTime);
+            //HandleMouse(mouseEventHandlers, state, deltaTime);
         }
 
         // for testing
@@ -105,14 +105,19 @@ namespace Zen.Input
             return _previousState.RightButton == ButtonState.Pressed && _currentState.RightButton == ButtonState.Released;
         }
 
-        private bool MouseWheelUp()
+        internal bool MouseWheelUp()
         {
-            return _currentState.ScrollWheelValue > _previousState.ScrollWheelValue;
+            return MouseWheelDifference() > 0;
         }
 
-        private bool MouseWheelDown()
+        internal bool MouseWheelDown()
         {
-            return _currentState.ScrollWheelValue < _previousState.ScrollWheelValue;
+            return MouseWheelDifference() < 0;
+        }
+
+        internal int MouseWheelDifference()
+        {
+            return _currentState.ScrollWheelValue - _previousState.ScrollWheelValue;
         }
 
         internal bool HasMouseMoved()
@@ -120,22 +125,22 @@ namespace Zen.Input
             return _previousState.Position != _currentState.Position;
         }
 
-        public bool IsMouseIsAtTopOfScreen()
+        public bool IsMouseAtTopOfScreen()
         {
             return Location.Y <= 30.0f && Location.Y >= 0.0f && Location.X >= 0.0f && Location.X <= 1680.0f;
         }
 
-        public bool MouseIsAtBottomOfScreen()
+        public bool IsMouseAtBottomOfScreen()
         {
             return Location.Y >= 1080 - 30.0f && Location.Y <= 1080.0f && Location.X >= 0.0f && Location.X <= 1680.0f;
         }
 
-        public bool MouseIsAtLeftOfScreen()
+        public bool IsMouseAtLeftOfScreen()
         {
             return Location.X < 30.0f && Location.X >= 0.0f && Location.Y >= 0.0f && Location.Y <= 1080.0f;
         }
 
-        public bool MouseIsAtRightOfScreen()
+        public bool IsMouseAtRightOfScreen()
         {
             return Location.X > 1680.0f - 30.0f && Location.X <= 1680.0f && Location.Y >= 0.0f && Location.Y <= 1080.0f;
         }

@@ -72,6 +72,41 @@ namespace Zen.Input
         public bool IsRightMouseButtonReleased => Mouse.IsRightButtonReleased();
 
         /// <summary>
+        /// Has the mouse wheel being scrolled up between this frame and the previous one?
+        /// </summary>
+        public bool MouseWheelUp => Mouse.MouseWheelUp();
+
+        /// <summary>
+        /// Has the mouse wheel being scrolled down between this frame and the previous one?
+        /// </summary>
+        public bool MouseWheelDown => Mouse.MouseWheelDown();
+
+        /// <summary>
+        /// The amount the mouse wheel has moved  between this frame and the previous one?
+        /// </summary>
+        public int MouseWheelDifference => Mouse.MouseWheelDifference();
+
+        /// <summary>
+        /// Is the mouse within 30 pixels of the top of the screen?
+        /// </summary>
+        public bool IsMouseAtTopOfScreen => Mouse.IsMouseAtTopOfScreen();
+
+        /// <summary>
+        /// Is the mouse within 30 pixels of the bottom of the screen?
+        /// </summary>
+        public bool IsMouseAtBottomOfScreen => Mouse.IsMouseAtBottomOfScreen();
+
+        /// <summary>
+        /// Is the mouse within 30 pixels of the left of the screen?
+        /// </summary>
+        public bool IsMouseAtLeftOfScreen => Mouse.IsMouseAtLeftOfScreen();
+
+        /// <summary>
+        /// Is the mouse within 30 pixels of the right of the screen?
+        /// </summary>
+        public bool IsMouseAtRightOfScreen => Mouse.IsMouseAtRightOfScreen();
+
+        /// <summary>
         /// Position of mouse on this frame.
         /// </summary>
         public Point MousePosition => Mouse.Location;
@@ -89,7 +124,7 @@ namespace Zen.Input
         /// <summary>
         /// Has the mouse moved between this frame and the previous one?
         /// </summary>
-        public bool MouseHasMoved => Mouse.HasMouseMoved();
+        public bool HasMouseMoved => Mouse.HasMouseMoved();
 
         /// <summary>
         /// Has any key been pressed on this frame?
@@ -102,6 +137,13 @@ namespace Zen.Input
         /// <param name="key">Key to check.</param>
         /// <returns>True if key is currently being pressed.</returns>
         public bool IsKeyDown(Keys key) => Keyboard.IsKeyDown(key);
+
+        /// <summary>
+        /// Has the key been released between this frame and the previous one?
+        /// </summary>
+        /// <param name="key">Key to check.</param>
+        /// <returns>True if key has just been released.</returns>
+        public bool IsKeyReleased(Keys key) => Keyboard.IsKeyReleased(key);
 
         public void Update(object state, float deltaTime)
         {

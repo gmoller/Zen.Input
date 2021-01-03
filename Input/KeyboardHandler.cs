@@ -73,7 +73,7 @@ namespace Zen.Input
         /// </summary>
         /// <param name="key">Key to check.</param>
         /// <returns>True if key has just been released (between this frame and last frame).</returns>
-        private bool IsKeyReleased(Keys key)
+        internal bool IsKeyReleased(Keys key)
         {
             return _previousState.IsKeyDown(key) && _currentState.IsKeyUp(key);
         }
